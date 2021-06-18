@@ -10,15 +10,15 @@ import os
 #et ici les variables qui vont me servir, j'espère
 recommencer = True
 essais = 1
-your_guess=0,5
+your_guess=0.5
 #voilà
 
 while True:
     print("Coucou, \nDonne-moi deux nombres et tu vas devoir deviner celui que j'ai choisi entre les deux que t'as sélectionné\n")
     while recommencer == True:
-        minimum = input("C'est quoi le minimum ?\n")
-        maximum = input("Et le maximum ?\n")
-        print("Donc ton minimum c'est " + minimum + " et ton maximum " + maximum + ".")
+        minimum = int(input("C'est quoi le minimum ?\n"))
+        maximum = int(input("Et le maximum ?\n"))
+        print("Donc ton minimum c'est " + str(minimum) + " et ton maximum " + str(maximum) + ".")
         if minimum>maximum:
             time.sleep(1)
             print("D'accord")
@@ -39,14 +39,12 @@ while True:
             time.sleep(1)
             print("Une petite vengeance ? Allez")
             sys.exit()
-    int_min=int(minimum)
-    int_max=int(maximum)
-    le_nombre = str(random.randint(int_min,int_max))
+    le_nombre = str(random.randint(minimum,maximum))
     print("Je te rappelle juste que le nombre à deviner est entier donc pas de virgules, de points ou de trucs comme ça.")
     time.sleep(1)
     print("C'est le moment de deviner")
     time.sleep(1)
-    print("Ton nombre est compris entre " + minimum + " et " + maximum)
+    print("Ton nombre est compris entre " + str(minimum) + " et " + str(maximum))
     time.sleep(1)
 
     while your_guess != le_nombre:
