@@ -8,12 +8,11 @@ import os
 #voilà
 
 #et ici les variables qui vont me servir, j'espère
-recommencer = True
-essais = 1
-your_guess=0.5
-#voilà
-
 while True:
+    recommencer = True
+    essais = 1
+    your_guess=0.5
+#voilà
     print("Coucou, \nDonne-moi deux nombres et tu vas devoir deviner celui que j'ai choisi entre les deux que t'as sélectionné\n")
     while recommencer == True:
         minimum = int(input("C'est quoi le minimum ?\n"))
@@ -38,6 +37,7 @@ while True:
             print("Ah oui donc méga lourd celui-là")
             time.sleep(1)
             print("Une petite vengeance ? Allez")
+            time.sleep(1)
             sys.exit()
     le_nombre = str(random.randint(minimum,maximum))
     print("Je te rappelle juste que le nombre à deviner est entier donc pas de virgules, de points ou de trucs comme ça.")
@@ -52,7 +52,10 @@ while True:
         if your_guess != le_nombre:
             essais=essais+1
             time.sleep(1)
-            print("Non, mais tu peux réessayer")
+            if your_guess > le_nombre:
+                print("Non, plus bas")
+            else:
+                print("Non, plus haut")
             time.sleep(1)
     else:
         print("Bien joué. Le nombre était " + str(le_nombre) + " et tu as deviné en " + str(essais) + " essais")
