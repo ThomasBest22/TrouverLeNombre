@@ -72,8 +72,10 @@ while True:
             time.sleep(2)
             print("Réinitialisation terminée")
             time.sleep(1)
-            os.system('cls')
-            os.system('clear')
+            if os.name == 'nt':
+                os.system('cls')
+            else:
+                os.system('clear')
         if oui_ou_non_v2min != "oui" and oui_ou_non_v2min != "non":
             print("T'as toujours pas compris ?")
             time.sleep(1)
