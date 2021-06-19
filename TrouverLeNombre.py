@@ -7,6 +7,18 @@ import time
 import os
 #voilà
 
+
+def get_user_number(message: str, end: str = "") -> int:
+    """Get safely number from user input."""
+    if not message.endswith("\n"):
+        message += "\n"
+    while True:
+        try:
+            return int(input(message))
+        except ValueError:
+            print("Ceci n'est pas un nombre! ", end=end)
+
+
 #et ici les variables qui vont me servir, j'espère
 while True:
     recommencer = True
@@ -15,8 +27,8 @@ while True:
 #voilà
     print("Coucou, \nDonne-moi deux nombres et tu vas devoir deviner celui que j'ai choisi entre les deux que t'as sélectionné\n")
     while recommencer == True:
-        minimum = int(input("C'est quoi le minimum ?\n"))
-        maximum = int(input("Et le maximum ?\n"))
+        minimum = get_user_number("C'est quoi le minimum ?\n")
+        maximum = get_user_number("Et le maximum ?\n")
         print("Donc ton minimum c'est " + str(minimum) + " et ton maximum " + str(maximum) + ".")
         if minimum>maximum:
             time.sleep(1)
